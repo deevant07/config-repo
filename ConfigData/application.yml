@@ -1,81 +1,51 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
 
 ---
 spring:
-  profiles: subject,primary
+  profiles: subject
 words: I,You,He,She,It
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-secondary:8012/eureka/,http://eureka-tertiary:8013/eureka/
+
 ---
 spring:
-  profiles: verb,primary
+  profiles: verb
 words: ran,knew,had,saw,bought
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-secondary:8012/eureka/,http://eureka-tertiary:8013/eureka/
+
 ---
 spring:
-  profiles: article,primary
+  profiles: article
 words: a,the
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-secondary:8012/eureka/,http://eureka-tertiary:8013/eureka/
+
 ---
 spring:
-  profiles: adjective,primary
+  profiles: adjective
 words: reasonable,leaky,suspicious,ordinary,unlikely
+
+---
+spring:
+  profiles: noun
+words: boat,book,vote,seat,backpack,partition,groundhog      
+---
+---
+spring:
+  profiles: primary  
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-secondary:8012/eureka/,http://eureka-tertiary:8013/eureka/
 ---
 spring:
-  profiles: noun,primary
-words: boat,book,vote,seat,backpack,partition,groundhog        
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-secondary:8012/eureka/,http://eureka-tertiary:8013/eureka/
----
-spring:
-  profiles: subject,secondary
-words: I,You,He,She,It
+  profiles: secondary  
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-primary:8011/eureka/,http://eureka-tertiary:8013/eureka/
 ---
 spring:
-  profiles: verb,secondary
-words: ran,knew,had,saw,bought
+  profiles: tertiary  
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-primary:8011/eureka/,http://eureka-tertiary:8013/eureka/
----
-spring:
-  profiles: article,secondary
-words: a,the
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-primary:8011/eureka/,http://eureka-tertiary:8013/eureka/
----
-spring:
-  profiles: adjective,secondary
-words: reasonable,leaky,suspicious,ordinary,unlikely
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-primary:8011/eureka/,http://eureka-tertiary:8013/eureka/
----
-spring:
-  profiles: noun,secondary
-words: boat,book,vote,seat,backpack,partition,groundhog        
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-primary:8011/eureka/,http://eureka-tertiary:8013/eureka/
+      defaultZone: http://eureka-primary:8011/eureka/,http://eureka-secondary:8012/eureka/
